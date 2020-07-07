@@ -1,0 +1,311 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="site-blocks-cover overlay bg-light" id="home-section" xmlns="http://www.w3.org/1999/html">
+
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-12 mt-lg-5 text-left align-self-center text-intro">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1 class="text-black">I'm Mitiku Teshome</h1>
+                        <p class="lead">I'm Software Developer and System planner Based On Finland</p>
+                        <p>
+                            <a href="#portfolio-section" class="btn smoothscroll btn-primary">Portfolio</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <img src="images/portrait.png" alt="Image" class="img-face" data-aos="fade">
+
+
+</div>
+
+<!-- About me -->
+<div class="site-section" id="about-section">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 mb-4 position-relative">
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2 mb-4 mb-lg-0">
+                <div class="bg-light pt-5">
+                    <img src="images/face.png" alt="Image" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-4 order-2 order-lg-1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+            </div>
+            <div class="col-lg-4 order-3 order-lg-3">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam qui maiores, ipsa quibusdam distinctio! Expedita ipsum ex porro obcaecati.</p>
+                <p>
+                    <a href="#contact-section" class="btn smoothscroll btn-primary">Contact Me</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- My Services -->
+<div class="site-section" id="services-section">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 mb-5 position-relative">
+                <h2 class="section-title text-center mb-5">My Services</h2>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="service d-flex h-100">
+                    <div class="service-number mr-4">
+                        <span class="icon-style"></span>
+                    </div>
+                    <div class="service-about">
+                        <h3>Back End Developement</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="service d-flex h-100">
+                    <div class="service-number mr-4">
+                        <span class="icon-business_center"></span>
+                    </div>
+                    <div class="service-about">
+                        <h3>Web Development</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="service d-flex h-100">
+                    <div class="service-number mr-4">
+                        <span class="icon-desktop_windows"></span>
+                    </div>
+                    <div class="service-about">
+                        <h3>Photography</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="service d-flex h-100">
+                    <div class="service-number mr-4">
+                        <span class="icon-layers"></span>
+                    </div>
+                    <div class="service-about">
+                        <h3>Web Design</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ipsum error eligendi molestiae eaque quas, ducimus sequi excepturi?</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- My Portfolio -->
+<section class="site-section block__62272" id="portfolio-section">
+    <partial name="_ProfilePartial"/>
+</section>
+
+<!-- Contact form -->
+<partial name="_ContactformPartial"/>
+
+<!-- Recommendations -->
+<section class="site-section bg-dark rec-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5 position-relative">
+                <h2 class="section-title text-center mb-5 text-white">Recommendations</h2>
+            </div>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="service d-flex h-100 bg-dark">
+                        <li id="ember982" class="pv-recommendation-entity ember-view">
+                            <div class="pv-recommendation-entity__header">
+                                <a data-control-name="recommendation_details_profile" href="https://www.linkedin.com/in/reta-shiferaw-05303934/" id="ember983" class="pv-recommendation-entity__member ember-view">
+                                    <img width="56" src="https://media-exp1.licdn.com/dms/image/C4E03AQGLos1WlgxvQA/profile-displayphoto-shrink_100_100/0?e=1599696000&amp;v=beta&amp;t=7oesJQf-q-HwUmbs6QCGZaJqyRM21FY584iuoK1WGSM" loading="lazy" height="56" alt="Reta Shiferaw" id="ember984" class="EntityPhoto-circle-4 fl lazy-image ember-view">
+                                    <div class="pv-recommendation-entity__detail">
+                                        <h3 class="t-16 t-black t-bold ">Reta Shiferaw</h3>
+                                        <p class="pv-recommendation-entity__headline t-14 t-black t-normal pb1">Software Developer at Ericsson</p>
+                                        <p class="t-12 t-black--light t-normal">
+                                            July 16, 2017, Mitiku worked with Reta in the same group
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="pv-recommendation-entity__highlights">
+                                <blockquote class="pv-recommendation-entity__text relative">
+                                    <div id="ember985" class="ember-view">
+                                        <span class="lt-line-clamp__raw-line">
+                                            I have had the opportunity to observe his participation and interaction in class and to evaluate his knowledge while we attend our first degree in IT engineering in Finland. As a fellow IT student in COU, I have taken and done some personal project along side Mitiku from 2012 until 2013. Not only has he been a key player in personal projects in our team but also a close personal friend of mine. He has demonstrated a strong commitment to his studies and work. Mitiku’s commendable attitude towards working with others would also serve him as a great asset in any career path he chooses. His determination to pursue excellence is founded on firm habits He has developed over the years. He works hard to honing his skills to keep up to date with what is current in his field and/or occupation. He is especially eager to learn what the future holds in his field and career and strives to be part of the evolution process.
+
+                                            Sincerely,
+                                            Retta Shiferaw
+                                        </span>
+
+                                        @* <!----><span class="lt-line-clamp__ellipsis lt-line-clamp__ellipsis--dummy">... <a class="lt-line-clamp__more" href="#" role="button">See more</a></span> *@
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="service d-flex h-100 bg-dark">
+                        <li id="ember987" class="pv-recommendation-entity ember-view">
+                            <div class="pv-recommendation-entity__header">
+                                <a data-control-name="recommendation_details_profile" href="https://www.linkedin.com/in/kibreab-tekle-15315427/" id="ember988" class="pv-recommendation-entity__member ember-view">
+                                    <img width="56" src="https://media-exp1.licdn.com/dms/image/C4D03AQHJFeh7vg0jWg/profile-displayphoto-shrink_100_100/0?e=1599696000&amp;v=beta&amp;t=guxxPsZnwXprLvYF3VO_ncNRIa2qbXvQekVArjckRHY" loading="lazy" height="56" alt="Kibreab Tekle" id="ember989" class="EntityPhoto-circle-4 fl lazy-image ember-view">
+
+
+                                    <div class="pv-recommendation-entity__detail">
+                                        <h3 class="t-16 t-black t-bold">Kibreab Tekle</h3>
+                                        <p class="pv-recommendation-entity__headline t-14 t-black t-normal pb1">Senior Software Developer at Ecolane Finland</p>
+                                        <p class="t-12 t-black--light t-normal">
+                                            June 3, 2017, Kibreab worked with Mitiku but at different companies
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="pv-recommendation-entity__highlights">
+                                <blockquote class="pv-recommendation-entity__text relative">
+                                    <div id="ember990" class="ember-view">
+                                        <span class="lt-line-clamp__raw-line">
+                                            Mitiku is a highly motivated, passionate and goal oriented individual with strong sense of good team spirit. Mitiku is ready and happy to accept any challenge that leads to growth. I had a chance to work with him and his engagement, willingness and professional approach inspired me. I have big faith and confidence in him as he will be a responsible achiever no matter how hard his assignment is. I am very sure that any one out there who seeks a talent like him will be able to benefit a lot from Mitiku's loyalty and positive energy.
+                                        </span>
+
+                                        @* <!----><span class="lt-line-clamp__ellipsis lt-line-clamp__ellipsis--dummy">... <a class="lt-line-clamp__more" href="#" role="button">See more</a></span> *@
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="service d-flex h-100 bg-dark">
+                        <li id="ember1177" class="pv-recommendation-entity ember-view">
+                            <div class="pv-recommendation-entity__header">
+                                <a data-control-name="recommendation_details_profile" href="https://www.linkedin.com/in/raymond-ogie-67177325/" id="ember1178" class="pv-recommendation-entity__member ember-view">
+                                    <img width="56" src="https://media-exp1.licdn.com/dms/image/C4D03AQEBbY9UrabAwA/profile-displayphoto-shrink_100_100/0?e=1599696000&amp;v=beta&amp;t=h2-54yB25LsAFMCihGypyPriufn4nC7oo1b2KxQyRpI" loading="lazy" height="56" alt="Raymond Ogie" id="ember1179" class="EntityPhoto-circle-4 fl lazy-image ember-view">
+
+
+                                    <div class="pv-recommendation-entity__detail">
+                                        <h3 class="t-16 t-black t-bold">Raymond Ogie</h3>
+                                        <p class="pv-recommendation-entity__headline t-14 t-black t-normal pb1">Global API Operations Manager at KONE</p>
+                                        <p class="t-12 t-black--light t-normal">
+                                            June 1, 2017, Raymond and Mitiku were students together
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="pv-recommendation-entity__highlights">
+                                <blockquote class="pv-recommendation-entity__text relative">
+                                    <div id="ember1180" class="ember-view">
+                                        <span class="lt-line-clamp__raw-line">Developing our engineering skills together, Mitiku showed great understanding of the concept of software engineering and development. Acquiring more knowledge and skills, his natural talent stirred him into the software industry where he acquire practical skill. He continued showing his potentials in group projects and individual excellence. Suffice to say his achievement is rooted in being hardworking and goal oriented. Relentless in obtaining success and would be a gift to any team he is dedicated to work with and to any project to which he contributes. </span>
+
+                                        @* <!----><span class="lt-line-clamp__ellipsis lt-line-clamp__ellipsis--dummy">... <a class="lt-line-clamp__more" href="#" role="button">See more</a></span> *@
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="service d-flex h-100 bg-dark">
+                        <li id="ember1181" class="pv-recommendation-entity ember-view">
+                            <div class="pv-recommendation-entity__header">
+                                <a data-control-name="recommendation_details_profile" href="https://www.linkedin.com/in/roshan-gupta-18303220/" id="ember1182" class="pv-recommendation-entity__member ember-view">
+                                    <img width="56" src="https://media-exp1.licdn.com/dms/image/C4D03AQEVkqoEiW66fA/profile-displayphoto-shrink_100_100/0?e=1599696000&amp;v=beta&amp;t=dHNFBFBPIWuQ_mvvs6pMI5HQ1oTyVFgrZZHL6ist5iM" loading="lazy" height="56" alt="Roshan Gupta" id="ember1183" class="EntityPhoto-circle-4 fl lazy-image ember-view">
+
+
+                                    <div class="pv-recommendation-entity__detail">
+                                        <h3 class="t-16 t-black t-bold">Roshan Gupta</h3>
+                                        <p class="pv-recommendation-entity__headline t-14 t-black t-normal pb1">Software Test Engineer | Seeking new Opportunities</p>
+                                        <p class="t-12 t-black--light t-normal">
+                                            May 27, 2017, Roshan and Mitiku were students together
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="pv-recommendation-entity__highlights">
+                                <blockquote class="pv-recommendation-entity__text relative">
+                                    <div id="ember1184" class="ember-view">
+                                        <span class="lt-line-clamp__line">Mitiku is persistent , dedicated and friendly person.It was a</span>
+                                        <span class="lt-line-clamp__line">pleasure to study and work on projects at our university.I can</span>
+                                        <span class="lt-line-clamp__line lt-line-clamp__line--last">
+                                            always recommend him.<!---->
+                                        </span>
+
+                                        @* <!----><span class="lt-line-clamp__ellipsis lt-line-clamp__ellipsis--dummy">... <a class="lt-line-clamp__more" href="#" role="button">See more</a></span> *@
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="service d-flex h-100 bg-dark">
+                        <li id="ember1186" class="pv-recommendation-entity ember-view">
+                            <div class="pv-recommendation-entity__header">
+                                <a data-control-name="recommendation_details_profile" href="/in/justina-li/" id="ember1187" class="pv-recommendation-entity__member ember-view">
+                                    <img width="56" src="https://media-exp1.licdn.com/dms/image/C5603AQE-iQjgOjyF2g/profile-displayphoto-shrink_100_100/0?e=1599696000&amp;v=beta&amp;t=Tm-ufpAPM_cZXerkLQvvlSTFsrtsfnq71gB6ov0C6uI" loading="lazy" height="56" alt="Justina Li" id="ember1188" class="EntityPhoto-circle-4 fl lazy-image ember-view">
+
+
+                                    <div class="pv-recommendation-entity__detail">
+                                        <h3 class="t-16 t-black t-bold">Justina Li</h3>
+                                        <p class="pv-recommendation-entity__headline t-14 t-black t-normal pb1">Marketing Director at AWAKE.AI | Aurajoki JCI</p>
+                                        <p class="t-12 t-black--light t-normal">
+                                            February 19, 2014, Justina and Mitiku were students together
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="pv-recommendation-entity__highlights">
+                                <blockquote class="pv-recommendation-entity__text relative">
+                                    <div id="ember1189" class="ember-view">
+                                        <span class="lt-line-clamp__raw-line">Mitiku is a hardworking and highly motivated person. He assumes high accountability towards delegated tasks and embraces the qualities of a devoted employee. I have worked with Mitiku on several projects at Centria University and I can assertively say that Mitiku has great communication skills, competences in software development and business. Integrity, dedication, respect, ambition and competency are core values. Threfore, I would highly recommend Mitiku as a strong minded person and a devoted employee.</span>
+
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
