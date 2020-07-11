@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using MitikuTeshomeGeleta.Model;
+using MitikuTeshomeGeleta.Services;
+using IEmailSender = MitikuTeshomeGeleta.Services.IEmailSender;
 
 namespace MitikuTeshomeGeleta.Areas.Identity.Pages.Account
 {
@@ -61,11 +64,22 @@ namespace MitikuTeshomeGeleta.Areas.Identity.Pages.Account
                 pageHandler: null,
                 values: new { userId = userId, code = code },
                 protocol: Request.Scheme);
-            await _emailSender.SendEmailAsync(
-                Input.Email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
+            var cont =
+                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
+            var message = new Message(new string[]
+            {
+                Input.Email
+            }, "Confirm your email", 
+                cont, 
+                null);
+
+            // await _emailSender.SendEmailAsync(
+            //     Input.Email,
+            //     "Confirm your email",
+            //     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+            await _emailSender.SendEmailAsync(message);
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();
         }

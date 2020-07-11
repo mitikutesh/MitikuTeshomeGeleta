@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
+// using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using MitikuTeshomeGeleta.Model;
+using MitikuTeshomeGeleta.Services;
 
 namespace MitikuTeshomeGeleta.Areas.Identity.Pages.Account
 {
@@ -55,12 +57,21 @@ namespace MitikuTeshomeGeleta.Areas.Identity.Pages.Account
                     pageHandler: null,
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
+        
+                // await _emailSender.SendEmailAsync(
+                //     Input.Email,
+                //     "Reset Password",
+                //     $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                await _emailSender.SendEmailAsync(
-                    Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                var cont =
+                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
+                var message = new Message(new string[]
+                    {
+                        Input.Email
+                    }, "Reset Password", 
+                    cont, 
+                    null);
+                await _emailSender.SendEmailAsync(message);
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
 

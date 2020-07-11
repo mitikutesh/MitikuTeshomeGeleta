@@ -12,6 +12,8 @@ using MitikuTeshomeGeleta.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MitikuTeshomeGeleta.Model;
+using MitikuTeshomeGeleta.Services;
 
 namespace MitikuTeshomeGeleta
 {
@@ -34,6 +36,22 @@ namespace MitikuTeshomeGeleta
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+
+            services.AddAuthentication()
+                // .AddMicrosoftAccount(microsoftOptions => { })
+                // .AddGoogle(googleOptions => { })
+                // .AddTwitter(twitterOptions => { })
+                .AddFacebook(facebookOptions =>
+                {
+                    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                    facebookOptions.AccessDeniedPath = "/AccessDeniedPathInfo";
+                });
+            var emailConfig = Configuration
+                .GetSection("EmailConfiguration")
+                .Get<EmailConfiguration>();
+            services.AddSingleton(emailConfig);
+            services.AddScoped<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

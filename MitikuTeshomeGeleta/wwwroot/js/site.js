@@ -2,23 +2,28 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
-//
-//
-// $(function () {
-//     $("#form-total").steps({
-//         headerTag: "h2",
-//         bodyTag: "section",
-//         transitionEffect: "fade",
-//         enableAllSteps: true,
-//         stepsOrientation: "vertical",
-//         autoFocus: true,
-//         transitionEffectSpeed: 500,
-//         titleTemplate: '<div class="title">#title#</div>',
-//         labels: {
-//             previous: 'Back Step',
-//             next: 'Next',
-//             finish: 'Submit',
-//             current: ''
-//         },
-//     })
-// });
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '731037804393793',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v7.0'
+    });
+
+    FB.AppEvents.logPageView();
+
+};
+
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+}
