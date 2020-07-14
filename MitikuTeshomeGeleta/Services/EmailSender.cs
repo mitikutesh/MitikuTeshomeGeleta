@@ -50,7 +50,7 @@ namespace MitikuTeshomeGeleta.Services
 
         private MimeMessage CreateEmailMessage(Message message)
         {
-            
+
             var emailMessage = new MimeMessage();
             emailMessage.From.Add(new MailboxAddress(_emailConfig.From));
             emailMessage.To.AddRange(message.To);
@@ -79,7 +79,7 @@ namespace MitikuTeshomeGeleta.Services
 
         private void Send(MimeMessage mailMessage)
         {
-           
+
             using (var client = new SmtpClient())
             {
                 try
@@ -87,7 +87,7 @@ namespace MitikuTeshomeGeleta.Services
                     client.Connect(_emailConfig.SmtpServer, _emailConfig.Port, true);
                     client.AuthenticationMechanisms.Remove("XOAUTH2");
                     client.Authenticate(_emailConfig.UserName, _emailConfig.Password);
-            
+
                     client.Send(mailMessage);
                 }
                 catch
@@ -105,64 +105,37 @@ namespace MitikuTeshomeGeleta.Services
 
         private async Task SendAsync(MimeMessage mailMessage)
         {
-            const string GMailAccount = "mitikutesh@gmail.com";
 
-            var clientSecrets = new ClientSecrets {
-                ClientId = "502872532690-iecj0kr4rbo8kdjlud2d3rb001ieg10c.apps.googleusercontent.com",
-                ClientSecret = "2qMR620EatUnbjFNJq-AZhN-"
-            };
+            using (var client = new SmtpClient())
+            {
+                try
+                {
+                    if (_env.IsDevelopment())
+                    {
+                        await client.ConnectAsync(_emailConfig.SmtpServer, _emailConfig.Port, MailKit.Security.SecureSocketOptions.SslOnConnect);
+                    }
+                    else
+                    {
+                        await client.ConnectAsync(_emailConfig.SmtpServer);
+                    }
 
-            var codeFlow = new GoogleAuthorizationCodeFlow (new GoogleAuthorizationCodeFlow.Initializer {
-                // Cache tokens in ~/.local/share/google-filedatastore/CredentialCacheFolder on Linux/Mac
-                DataStore = new FileDataStore ("CredentialCacheFolder", false),
-                Scopes = new [] { "https://mail.google.com/" },
-                ClientSecrets = clientSecrets
-            });
 
-            var codeReceiver = new LocalServerCodeReceiver ();
-            var authCode = new AuthorizationCodeInstalledApp (codeFlow, codeReceiver);
-            var credential = await authCode.AuthorizeAsync (GMailAccount, CancellationToken.None);
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
+                    await client.AuthenticateAsync(_emailConfig.UserName, _emailConfig.Password);
 
-            if (authCode.ShouldRequestAuthorizationCode (credential.Token))
-                await credential.RefreshTokenAsync (CancellationToken.None);
-
-            var oauth2 = new SaslMechanismOAuth2 (credential.UserId, credential.Token.AccessToken);
-
-            using var client = new SmtpClient ();
-            await client.ConnectAsync (_emailConfig.SmtpServer,  _emailConfig.Port, SecureSocketOptions.SslOnConnect);
-            await client.AuthenticateAsync (oauth2);
-            await client.SendAsync(mailMessage);
-            await client.DisconnectAsync (true);
-            // using (var client = new SmtpClient())
-            // {
-            //     try
-            //     {
-            //         if (_env.IsDevelopment())
-            //         {
-            //             await client.ConnectAsync(_emailConfig.SmtpServer, _emailConfig.Port, MailKit.Security.SecureSocketOptions.SslOnConnect);
-            //         }
-            //         else
-            //         {
-            //             await client.ConnectAsync(_emailConfig.SmtpServer);
-            //         }
-            //
-            //         
-            //         client.AuthenticationMechanisms.Remove("XOAUTH2");
-            //         await client.AuthenticateAsync(_emailConfig.UserName, _emailConfig.Password);
-            //
-            //         await client.SendAsync(mailMessage);
-            //     }
-            //     catch(Exception ex)
-            //     {
-            //         //log an error message or throw an exception, or both.
-            //         throw;
-            //     }
-            //     finally
-            //     {
-            //         await client.DisconnectAsync(true);
-            //         client.Dispose();
-            //     }
-            // }
+                    await client.SendAsync(mailMessage);
+                }
+                catch(Exception ex)
+                {
+                    //log an error message or throw an exception, or both.
+                    throw;
+                }
+                finally
+                {
+                    await client.DisconnectAsync(true);
+                    client.Dispose();
+                }
+            }
         }
     }
 }
